@@ -18,6 +18,7 @@ pub struct StarshipRootConfig {
     pub scan_timeout: u64,
     pub command_timeout: u64,
     pub add_newline: bool,
+    pub trim_prompt: bool,
     pub follow_symlinks: bool,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub palette: Option<String>,
@@ -140,6 +141,7 @@ impl Default for StarshipRootConfig {
             scan_timeout: 30,
             command_timeout: 500,
             add_newline: true,
+            trim_prompt: false,
             follow_symlinks: true,
             palette: None,
             palettes: HashMap::default(),

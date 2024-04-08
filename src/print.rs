@@ -125,7 +125,12 @@ pub fn get_prompt(context: Context) -> String {
     // color sequences for this specific shell
     let shell_wrapped_output =
         wrap_colorseq_for_shell(AnsiStrings(&module_strings).to_string(), context.shell);
-    write!(buf, "{}", shell_wrapped_output).unwrap();
+
+    if config.trim_prompt {
+        write!(buf, "{}", shell_wrapped_output.trim()).unwrap();
+    } else {
+        write!(buf, "{}", shell_wrapped_output).unwrap();
+    }
 
     if context.target == Target::Right {
         // right prompts generally do not allow newlines

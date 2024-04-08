@@ -1908,6 +1908,10 @@
       "default": true,
       "type": "boolean"
     },
+    "trim_prompt": {
+      "default": false,
+      "type": "boolean"
+    },
     "follow_symlinks": {
       "default": true,
       "type": "boolean"
